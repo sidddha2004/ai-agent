@@ -1,57 +1,75 @@
-📌 Project Overview
+A secure, production-ready AI agent framework that lets LLMs safely interact with Django user data, internal logic, and external APIs, with strict role-based access control.
 
-This project is a secure AI agent framework built with Django and LangGraph that allows large language models to safely interact with user data, internal application logic, and external APIs. Agents can answer natural-language queries by executing approved Python tools, querying Django ORM models directly, and integrating third-party REST services, without requiring vector embeddings unless explicitly needed.
+📌 Overview
 
-The system enforces role-based access control (RBAC) using Permit to ensure that every action—such as create, read, update, search, share, or delete—is strictly permission-controlled. It supports multi-agent orchestration, including a Supervisor Agent that manages specialized sub-agents, and is LLM-agnostic, enabling easy model upgrades. The result is a controlled, auditable, and production-ready AI agent architecture designed for real-world Django applications.
+This project enables large language models to:
+
+Query Django ORM data directly
+
+Execute approved Python tools
+
+Integrate third-party REST APIs
+
+Operate under strict RBAC policies using Permit
+
+It supports multi-agent orchestration, including a Supervisor Agent, and is LLM-agnostic, allowing easy model upgrades without changing core logic.
 
 ⚡ Quick Start
-1️⃣ Clone the Repository
-**git clone https://github.com/sidddha2004/ai-agent.git
+1. Clone the Repository
+git clone https://github.com/sidddha2004/ai-agent.git
 cd ai-agent
-**
-2️⃣ Create & Activate Virtual Environment
-**python -m venv venv
-source venv/bin/activate      # Windows: venv\Scripts\activate**
 
-3️⃣ Install Dependencies
-**pip install -r requirements.txt**
+2. Create & Activate Virtual Environment
+python -m venv venv
+source venv/bin/activate      # Windows: venv\Scripts\activate
 
-4️⃣ Configure Environment Variables
+3. Install Dependencies
+pip install -r requirements.txt
 
-Set the following variables in:
-**
-src/cfehome/settings.py**
+4. Environment Configuration
 
+Add the following variables in src/cfehome/settings.py
+(loaded using python-decouple):
 
-Values are loaded using python-decouple.
-**
-Required Environment Variables
 OPENAI_API_KEY=your_openai_api_key
 TMDB_API_KEY=your_tmdb_api_key
 PERMIT_API_KEY=your_permit_api_key
-PERMIT_PDP_URL=https://cloudpdp.api.permit.io**
+PERMIT_PDP_URL=https://cloudpdp.api.permit.io
 
-5️⃣ Run Database Migrations
-**python manage.py makemigrations
-python manage.py migrate**
+5. Run Migrations
+python manage.py makemigrations
+python manage.py migrate
 
-6️⃣ Create Admin User
-**python manage.py createsuperuser**
+6. Create Admin User
+python manage.py createsuperuser
 
-7️⃣ Start the Server
-**python manage.py runserver**
+7. Start the Server
+python manage.py runserver
 
 
-Visit the Django Admin panel:
-**👉 http://127.0.0.1:8000/admin**
+Open:
+👉 http://127.0.0.1:8000/admin
 
-8️⃣ Start Chatting with Your Agent
+8. Use the AI Agent
 
 Log in as admin or user
 
 Assign roles & permissions
 
-Query your data using natural language:
+Ask natural-language queries:
 
-“What are my recent documents?”
-“Summarize user activity this week” 
+What are my recent documents?
+
+Summarize user activity this week
+
+🧱 Tech Stack
+
+Backend: Django
+
+Agents: LangGraph
+
+Auth & Permissions: Django Auth + Permit
+
+LLMs: Pluggable (OpenAI / others)
+
+Data: Django ORM (optional vector DB)
