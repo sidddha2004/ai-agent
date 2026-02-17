@@ -6,44 +6,44 @@ The system enforces role-based access control (RBAC) using Permit to ensure that
 
 ⚡ Quick Start
 1️⃣ Clone the Repository
-git clone https://github.com/sidddha2004/ai-agent.git
+**git clone https://github.com/sidddha2004/ai-agent.git
 cd ai-agent
-
+**
 2️⃣ Create & Activate Virtual Environment
-python -m venv venv
-source venv/bin/activate      # Windows: venv\Scripts\activate
+**python -m venv venv
+source venv/bin/activate      # Windows: venv\Scripts\activate**
 
 3️⃣ Install Dependencies
-pip install -r requirements.txt
+**pip install -r requirements.txt**
 
 4️⃣ Configure Environment Variables
 
 Set the following variables in:
-
-src/cfehome/settings.py
+**
+src/cfehome/settings.py**
 
 
 Values are loaded using python-decouple.
-
+**
 Required Environment Variables
 OPENAI_API_KEY=your_openai_api_key
 TMDB_API_KEY=your_tmdb_api_key
 PERMIT_API_KEY=your_permit_api_key
-PERMIT_PDP_URL=https://cloudpdp.api.permit.io
+PERMIT_PDP_URL=https://cloudpdp.api.permit.io**
 
 5️⃣ Run Database Migrations
-python manage.py makemigrations
-python manage.py migrate
+**python manage.py makemigrations
+python manage.py migrate**
 
 6️⃣ Create Admin User
-python manage.py createsuperuser
+**python manage.py createsuperuser**
 
 7️⃣ Start the Server
-python manage.py runserver
+**python manage.py runserver**
 
 
 Visit the Django Admin panel:
-👉 http://127.0.0.1:8000/admin
+**👉 http://127.0.0.1:8000/admin**
 
 8️⃣ Start Chatting with Your Agent
 
